@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>All Handsets</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container-fluid text-center">
+	<h2>All Handsets</h2>
+	<table class="table table-bordered">
+		<thead class="table-dark">
+		<tr>
+			<th>ID</th>
+			<th>Model</th>
+			<th>SN</th>
+			<th>Owner</th>
+			<th>Notes</th>
+		</tr>
+		</thead>
+		<tbody>
+		<th:block th:each="handset:${allHandsets}">
+			<tr>
+				<td>[[${handset.getHandsetId()}]]</td>
+				<td>[[${handset.getModel()}]]</td>
+				<td>[[${handset.getSerialNumber()}]]</td>
+				<td>[[${handset.getOwner()}]]</td>
+				<td>[[${handset.getNotes()}]]</td>
+			</tr>
+		</th:block>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>

@@ -16,7 +16,7 @@ import javax.persistence.*;
         name = "handset",
         uniqueConstraints = @UniqueConstraint(
                 name = "unique_sn",
-                columnNames = "sierial_number"
+                columnNames = "serial_number"
         )
 )
 public class Handset {
@@ -26,19 +26,21 @@ public class Handset {
             sequenceName = "handset_sequence",
             allocationSize = 1
     )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "handset_sequence"
-    )
+//    @GeneratedValue(
+//            strategy = GenerationType.SEQUENCE,
+//            generator = "handset_sequence"
+//    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "handset_id")
     private int handsetId;
     private String model;
     private String Owner;
     private String notes;
     @Column(
-            name = "sierial_number",
-            nullable = false
+            name = "serial_number",
+            nullable = false,
+            unique = true
     )
-    private String SierialNumber;
+    private String SerialNumber;
 //    Private StfSetup stfSetup;
 }
